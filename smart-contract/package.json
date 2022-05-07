@@ -27,8 +27,8 @@
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-promise": "^5.2.0",
     "ethereum-waffle": "^3.4.0",
-    "ethers": "^5.6.5",
-    "hardhat": "^2.9.3",
+    "ethers": "^5.5.3",
+    "hardhat": "^2.8.2",
     "hardhat-gas-reporter": "^1.0.7",
     "keccak256": "^1.0.6",
     "merkletreejs": "^0.2.27",
@@ -59,8 +59,5 @@
     "public-sale-open": "hardhat run scripts/6_public_sale_open.ts",
     "public-sale-close": "hardhat run scripts/7_public_sale_close.ts",
     "reveal": "hardhat run scripts/8_reveal.ts"
-  },
-  "dependencies": {
-    "eth-rpc-errors": "^4.0.3"
   }
 }

@@ -38,7 +38,7 @@ export const ethereumMainnet: NetworkConfigInterface = {
  */
 export const polygonTestnet: NetworkConfigInterface = {
   chainId: 80001,
-  symbol: 'ETH',
+  symbol: 'MATIC (test)',
   blockExplorer: {
     name: 'Polygonscan (Mumbai)',
     generateContractUrl: (contractAddress: string) => `https://mumbai.polygonscan.com/address/${contractAddress}`,
