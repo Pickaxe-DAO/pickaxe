@@ -10,7 +10,7 @@ const CollectionConfig: CollectionConfigInterface = {
   // yarn rename-contract NEW_CONTRACT_NAME
   // Please DO NOT change it manually!
   contractName: 'PickAXE',
-  tokenName: 'PickAXE',
+  tokenName: 'PickAXE Miner',
   tokenSymbol: 'PAXE',
   hiddenMetadataUri: "ipfs://QmWFK6BgNgydBahQBrVrZc5ASX1nNtcw8pWqkmnrpsHwxx/hidden_metadata.json",
   maxSupply: 1000,
@@ -26,7 +26,7 @@ const CollectionConfig: CollectionConfigInterface = {
     price: 0.015,
     maxMintAmountPerTx: 5,
   },
-  contractAddress: "0x242251EC5149459b2160B1EE5fa0dC66407f9165",
+  contractAddress: "0x664E82E8f6364b14BeB3A51abB816aCEEaAcCCEF",
   marketplaceIdentifier: 'PickAXE DAO Miners',
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses: whitelistAddresses,
