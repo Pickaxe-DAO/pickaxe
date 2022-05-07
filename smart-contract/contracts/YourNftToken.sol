@@ -7,7 +7,7 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/utils/cryptography/MerkleProof.sol';
 import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
 
-contract PickAXE is ERC721A, Ownable, ReentrancyGuard {
+contract YourNftToken is ERC721A, Ownable, ReentrancyGuard {
 
   using Strings for uint256;
 
@@ -54,14 +54,11 @@ contract PickAXE is ERC721A, Ownable, ReentrancyGuard {
   function whitelistMint(uint256 _mintAmount, bytes32[] calldata _merkleProof) public payable mintCompliance(_mintAmount) mintPriceCompliance(_mintAmount) {
     // Verify whitelist requirements
     require(whitelistMintEnabled, 'The whitelist sale is not enabled!');
-    require(!whitelistClaimed[_msgSender()], 'Whitelist mint already claimed!');
+    require(!whitelistClaimed[_msgSender()], 'Address already claimed!');
     bytes32 leaf = keccak256(abi.encodePacked(_msgSender()));
     require(MerkleProof.verify(_merkleProof, merkleRoot, leaf), 'Invalid proof!');
 
-    while ((_numberMinted(_msgSender()) + _mintAmount) > 10)
-    {
     whitelistClaimed[_msgSender()] = true;
-    }
     _safeMint(_msgSender(), _mintAmount);
   }
 
@@ -82,17 +79,19 @@ contract PickAXE is ERC721A, Ownable, ReentrancyGuard {
     uint256 ownedTokenIndex = 0;
     address latestOwnerAddress;
 
-    while (ownedTokenIndex < ownerTokenCount && currentTokenId <= maxSupply) {
+    while (ownedTokenIndex < ownerTokenCount && currentTokenId < _currentIndex) {
       TokenOwnership memory ownership = _ownerships[currentTokenId];
 
-      if (!ownership.burned && ownership.addr != address(0)) {
-        latestOwnerAddress = ownership.addr;
-      }
+      if (!ownership.burned) {
+        if (ownership.addr != address(0)) {
+          latestOwnerAddress = ownership.addr;
+        }
 
-      if (latestOwnerAddress == _owner) {
-        ownedTokenIds[ownedTokenIndex] = currentTokenId;
+        if (latestOwnerAddress == _owner) {
+          ownedTokenIds[ownedTokenIndex] = currentTokenId;
 
-        ownedTokenIndex++;
+          ownedTokenIndex++;
+        }
       }
 
       currentTokenId++;
@@ -114,7 +113,7 @@ contract PickAXE is ERC721A, Ownable, ReentrancyGuard {
 
     string memory currentBaseURI = _baseURI();
     return bytes(currentBaseURI).length > 0
-        ? string(abi.encodePacked(currentBaseURI, uriSuffix))
+        ? string(abi.encodePacked(currentBaseURI, _tokenId.toString(), uriSuffix))
         : '';
   }
 
@@ -153,26 +152,25 @@ contract PickAXE is ERC721A, Ownable, ReentrancyGuard {
   function setWhitelistMintEnabled(bool _state) public onlyOwner {
     whitelistMintEnabled = _state;
   }
-  
-  function _baseURI() internal view virtual override returns (string memory) {
-    return uriPrefix;
-  }
-  
+
   function withdraw() public onlyOwner nonReentrant {
-    // The Withdraw function will be used to send 94% of the funds to the DAO gnosis, from which we will send out payments to holders
-    // and 6% to the team gnosis, which will be used to pay the team. The latter gnosis has not yet been created, so for now it
-    // is set to the smart contract owner. 
-    // Team Allocation - This is sent to the DAO Gnosis safe.
+    // This will pay HashLips Lab Team 5% of the initial sale.
+    // By leaving the following lines as they are you will contribute to the
+    // development of tools like this and many others.
     // =============================================================================
-    (bool hs, ) = payable(0x42662cB49902Bd2F3489e738368d08BA114d4Be5).call{value: address(this).balance * 94 / 100}('');
+    (bool hs, ) = payable(0x146FB9c3b2C13BA88c6945A759EbFa95127486F4).call{value: address(this).balance * 5 / 100}('');
     require(hs);
     // =============================================================================
 
-    // This will transfer the remaining contract balance to the Team Gnosis.
+    // This will transfer the remaining contract balance to the owner.
+    // Do not remove this otherwise you will not be able to withdraw the funds.
     // =============================================================================
     (bool os, ) = payable(owner()).call{value: address(this).balance}('');
     require(os);
     // =============================================================================
   }
-  
+
+  function _baseURI() internal view virtual override returns (string memory) {
+    return uriPrefix;
+  }
 }

@@ -147,7 +147,7 @@ if (process.env.NETWORK_TESTNET_URL !== undefined) {
 // Setup "mainnet" network
 if (process.env.NETWORK_MAINNET_URL !== undefined) {
   config.networks!.mainnet = {
-    url: "https://matic-mumbai.chainstacklabs.com",
+    url: process.env.NETWORK_MAINNET_URL,
     accounts: [process.env.NETWORK_MAINNET_PRIVATE_KEY!],
     gasMultiplier: DEFAULT_GAS_MULTIPLIER,
   };

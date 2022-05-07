@@ -95,11 +95,7 @@ export default class Dapp extends React.Component<Props, State> {
     try {
       await this.contract.whitelistMint(amount, Whitelist.getProofForAddress(this.state.userAddress!), {value: this.state.tokenPrice.mul(amount)});
     } catch (e) {
-      this.setError(
-          <>
-              Maximum Whitelist Mint Allowance (10) Claimed!
-          </>,
-      );
+      this.setError(e);
     }
   }
 
@@ -185,9 +181,9 @@ export default class Dapp extends React.Component<Props, State> {
                   />
                   :
                   <div className="collection-sold-out">
-                    <h2>All PickAXE's have been <strong>sold out</strong>! <span className="emoji">🎉</span></h2>
+                    <h2>Tokens have been <strong>sold out</strong>! <span className="emoji">🥳</span></h2>
 
-                    You can buy from our holders on Opensea here: <a href={this.generateMarketplaceUrl()} target="_blank">{CollectionConfig.marketplaceConfig.name}</a>.
+                    You can buy from our beloved holders on <a href={this.generateMarketplaceUrl()} target="_blank">{CollectionConfig.marketplaceConfig.name}</a>.
                   </div>
                 }
               </>
@@ -207,6 +203,14 @@ export default class Dapp extends React.Component<Props, State> {
         {!this.isWalletConnected() || !this.isSoldOut() ?
           <div className="no-wallet">
             {!this.isWalletConnected() ? <button className="primary" disabled={this.provider === undefined} onClick={() => this.connectWallet()}>Connect Wallet</button> : null}
+            
+            <div className="use-block-explorer">
+              Hey, looking for a <strong>super-safe experience</strong>? <span className="emoji">😃</span><br />
+              You can interact with the smart-contract <strong>directly</strong> through <a href={this.generateContractUrl()} target="_blank">{this.state.networkConfig.blockExplorer.name}</a>, without even connecting your wallet to this DAPP! <span className="emoji">🚀</span><br />
+              <br />
+              Keep safe! <span className="emoji">❤️</span>
+            </div>
+
             {!this.isWalletConnected() || this.state.isWhitelistMintEnabled ?
               <div className="merkle-proof-manual-address">
                 <h2>Whitelist Proof</h2>
@@ -303,7 +307,7 @@ export default class Dapp extends React.Component<Props, State> {
     });
 
     if (await this.provider.getCode(CollectionConfig.contractAddress!) === '0x') {
-      this.setError('Please connect your wallet to Polygon Mainnet.');
+      this.setError('Could not find the contract, are you connected to the right chain?');
 
       return;
     }
