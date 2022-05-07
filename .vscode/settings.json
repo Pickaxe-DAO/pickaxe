@@ -1,6 +1,4 @@
 {
   "solidity.packageDefaultDependenciesDirectory": "smart-contract/node_modules",
-  "eslint.workingDirectories": [
-    "src" ],
   "editor.tabSize": 2
 }
