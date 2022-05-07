@@ -3,27 +3,27 @@ body {
   @apply min-h-screen;
 
   @apply font-sans;
+  @apply text-primarytxt;
 
-  // Simple background with color gradient
-  @apply bg-gradient-to-b from-page-from_bg via-page-from_bg to-page-to_bg;
+  //colour gradient bg
+  //@apply bg-gradient-to-b from-primary-800 via-primary-800 to-primary-900;
 
-  // Fullscreen background image example
-  //background-image: url('../../images/background.jpg');
-  //@apply bg-center bg-cover bg-fixed;
+  //image bg
+  background-image: url('../../images/background.png');
+  @apply bg-center bg-cover bg-fixed;
 }
 
 a, a:link, a:visited {
-  @apply font-semibold;
-  @apply text-links-txt;
+  @apply font-bold;
+  @apply text-primary-600;
 
   &:hover {
     @apply underline;
-    @apply text-links-hover_txt;
   }
 }
 
 strong {
-  @apply font-semibold;
+  @apply font-bold;
 }
 
 main {
@@ -43,17 +43,19 @@ span.emoji {
 .error {
   @apply flex flex-col;
   @apply rounded-lg;
-  @apply p-3;
-  
-  @apply text-error-txt text-sm;
-  @apply bg-error-bg;
-  @apply border border-error-border;
+  @apply p-2;
+  @apply text-sm;
+  @apply font-bold;
+  @apply bg-error-50;
+  @apply border-2 border-primary-900;
   @apply shadow;
+  @apply text-primary-900;
+  @apply bg-error-600;
 
   &::before {
-    content: 'Error';
+    content: 'Error:';
 
-    @apply font-semibold;
+    @apply font-bold;
     @apply text-base;
   }
 
@@ -63,15 +65,15 @@ span.emoji {
     @apply px-2 py-1;
     @apply rounded-md;
 
-    @apply font-semibold;
-    @apply text-btn_error-txt text-xs;
-    @apply bg-btn_error-bg;
-    @apply border-btn_error-border;
+    @apply text-xs;
+
+    @apply font-bold;
+    @apply text-primary-900;
+    @apply bg-error-600;
+    @apply border-2 border-primary-900;
 
     &:hover {
-      @apply text-btn_error-hover_txt;
-      @apply bg-btn_error-hover_bg;
-      @apply border-btn_error-hover_border;
+      @apply bg-error-600;
     }
   }
 }
@@ -81,27 +83,23 @@ button {
 
   @apply rounded-full;
   
-  @apply font-semibold;
-  @apply text-btn-txt;
-  @apply bg-btn-bg;
-  @apply border border-btn-border;
+  @apply font-bold;
+  //@apply bg-popupsbg;
+  @apply bg-primary-900;
+  @apply border border-primary-500;
   @apply shadow-sm;
 
   &:hover {
-    @apply text-btn-hover_txt;
-    @apply bg-btn-hover_bg;
-    @apply border-btn-hover_border;
+    @apply bg-neutral-900;
   }
 
   &.primary {
-    @apply text-btn_primary-txt;
-    @apply bg-btn_primary-bg;
-    @apply border-btn_primary-border;
+    @apply text-primary-900;
+    @apply bg-neutral-500;
+    @apply border;
 
     &:hover {
-      @apply text-btn_primary-hover_txt;
-      @apply bg-btn_primary-hover_bg;
-      @apply border-btn_primary-hover_border;
+      @apply bg-neutral-800;
     }
 
     &:disabled {
@@ -120,16 +118,15 @@ input[type=text] {
   @apply rounded-full;
   
   @apply font-mono font-semibold;
-  @apply text-txt_input-txt;
-  @apply bg-txt_input-bg;
-  @apply border border-txt_input-border;
+  @apply text-primarytxt;
+  @apply bg-popupsbg;
+  @apply border border-neutral-200;
   @apply shadow-sm;
   @apply outline-none;
 
   &:focus {
-    @apply text-txt_input-focus_txt;
-    @apply bg-txt_input-focus_bg;
-    @apply border-txt_input-focus_border;
+    @apply bg-neutral-50;
+    @apply border-primary-500;
   }
 
   &:disabled {
@@ -145,5 +142,5 @@ label {
   @apply mt-4 mb-1 ml-1;
 
   @apply font-semibold;
-  @apply text-label text-sm;
+  @apply text-sm text-primary-700;
 }
