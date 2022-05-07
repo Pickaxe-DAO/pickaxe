@@ -10,7 +10,7 @@ const CollectionConfig: CollectionConfigInterface = {
   // yarn rename-contract NEW_CONTRACT_NAME
   // Please DO NOT change it manually!
   contractName: 'PickAXE',
-  tokenName: 'PickAXE',
+  tokenName: 'PickAXE Miner',
   tokenSymbol: 'PAXE',
   hiddenMetadataUri: "ipfs://QmWFK6BgNgydBahQBrVrZc5ASX1nNtcw8pWqkmnrpsHwxx/hidden_metadata.json",
   maxSupply: 1000,
