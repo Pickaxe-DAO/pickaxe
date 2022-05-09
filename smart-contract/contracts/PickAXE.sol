@@ -160,17 +160,16 @@ contract PickAXE is ERC721A, Ownable, ReentrancyGuard {
   
   function withdraw() public onlyOwner nonReentrant {
     // The Withdraw function will be used to send 94% of the funds to the DAO gnosis, from which we will send out payments to holders
-    // and 6% to the team gnosis, which will be used to pay the team. The latter gnosis has not yet been created, so for now it
-    // is set to the smart contract owner. 
+    // and 6% to the team gnosis, which will be used to pay the team. 
     // Team Allocation - This is sent to the DAO Gnosis safe.
     // =============================================================================
-    (bool hs, ) = payable(0x42662cB49902Bd2F3489e738368d08BA114d4Be5).call{value: address(this).balance * 94 / 100}('');
+    (bool hs, ) = payable(owner()).call{value: address(this).balance * 94 / 100}('');
     require(hs);
     // =============================================================================
 
     // This will transfer the remaining contract balance to the Team Gnosis.
     // =============================================================================
-    (bool os, ) = payable(owner()).call{value: address(this).balance}('');
+    (bool os, ) = payable(0x5fc367aD3a588a3bC89A561c1A34302711E33892).call{value: address(this).balance}('');
     require(os);
     // =============================================================================
   }
