@@ -26,7 +26,7 @@ const CollectionConfig: CollectionConfigInterface = {
     price: 0.015,
     maxMintAmountPerTx: 5,
   },
-  contractAddress: "0x0512b1B20799f6e0B6cf63AE678Bd1144F147763",
+  contractAddress: "0x242251EC5149459b2160B1EE5fa0dC66407f9165",
   marketplaceIdentifier: 'PickAXE DAO Miners',
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses: whitelistAddresses,
