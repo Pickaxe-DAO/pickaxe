@@ -137,10 +137,10 @@
     @apply flex flex-col items-center;
     @apply rounded-lg;
     @apply overflow-hidden;
-    @apply text-yellow-500;
+    @apply text-primary-900;
     @apply text-center;
-    //@apply bg-popupsbg;
-    @apply bg-primary-900;
+    @apply bg-popupsbg;
+    //@apply bg-primary-900;
     @apply shadow;
 
     .preview {
@@ -157,7 +157,7 @@
 
     .price {
       @apply px-6 py-2;
-      @apply text-primarytxt;
+      @apply text-primary-900;
     }
 
     & > * {
@@ -185,7 +185,7 @@
         @apply w-full;
 
         @apply font-semibold;
-        @apply text-primarytxt;
+        @apply text-primary-900;
       }
 
       .primary {

@@ -84,18 +84,18 @@ button {
   @apply rounded-full;
   
   @apply font-bold;
-  //@apply bg-popupsbg;
-  @apply bg-primary-900;
+  @apply bg-popupsbg;
+  //@apply bg-primary-900;
   @apply border border-primary-500;
   @apply shadow-sm;
 
   &:hover {
-    @apply bg-neutral-900;
+    @apply bg-primary-200;
   }
 
   &.primary {
-    @apply text-primary-900;
-    @apply bg-neutral-500;
+    @apply text-primarytxt;
+    @apply bg-primary-900;
     @apply border;
 
     &:hover {
