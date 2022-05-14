@@ -78,7 +78,7 @@ export default class MintWidget extends React.Component<Props, State> {
               <span className="mint-amount">{this.state.mintAmount}</span>
               <button className="increase" onClick={() => this.incrementMintAmount()}>+</button>
               <button className="primary" onClick={() => this.mint()}>Mint</button>
-            </div>
+            </div>          
           </div>
           :
           <div className="cannot-mint">
@@ -87,6 +87,7 @@ export default class MintWidget extends React.Component<Props, State> {
             {this.props.isWhitelistMintEnabled ? <>You are not included in the <strong>whitelist</strong>.</> : <>The contract is <strong>paused</strong>.</>}<br />
             Please come back during the next sale!
           </div>
+          
         }
       </>
     );

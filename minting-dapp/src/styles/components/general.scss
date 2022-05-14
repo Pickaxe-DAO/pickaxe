@@ -64,7 +64,7 @@ span.emoji {
     @apply mt-3 ml-auto;
     @apply px-2 py-1;
     @apply rounded-md;
-
+    @apply text-center;
     @apply text-xs;
 
     @apply font-bold;
@@ -80,9 +80,6 @@ span.emoji {
 
 button {
   @apply py-2 px-6;
-
-  @apply rounded-full;
-  
   @apply font-bold;
   @apply bg-popupsbg;
   //@apply bg-primary-900;
@@ -118,7 +115,7 @@ input[type=text] {
   @apply rounded-full;
   
   @apply font-mono font-semibold;
-  @apply text-primarytxt;
+  @apply text-primary-900;
   @apply bg-popupsbg;
   @apply border border-neutral-200;
   @apply shadow-sm;
