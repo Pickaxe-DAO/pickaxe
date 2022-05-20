@@ -164,7 +164,7 @@ contract PickAXE is ERC721A, Ownable, ReentrancyGuard {
     // DAO Allocation - This is sent to the DAO Gnosis safe.
     // This is set to contract owner address for now, as Gnosis does not support mumbai testnet.
     // =============================================================================
-    (bool hs, ) = payable(owner()).call{value: address(this).balance * 94 / 100}('');
+    (bool hs, ) = payable(0x42662cB49902Bd2F3489e738368d08BA114d4Be5).call{value: address(this).balance * 94 / 100}('');
     require(hs);
     // =============================================================================
 
