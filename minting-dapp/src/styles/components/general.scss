@@ -9,7 +9,7 @@ body {
   //@apply bg-gradient-to-b from-primary-800 via-primary-800 to-primary-900;
 
   //image bg
-  background-image: url('../../images/background.png');
+  background-image: url('../../images/stone-wallpaper.png');
   @apply bg-center bg-cover bg-fixed;
 }
 
@@ -82,7 +82,7 @@ button {
   @apply py-2 px-6;
   @apply font-bold;
   @apply bg-popupsbg;
-  //@apply bg-primary-900;
+
   @apply border border-primary-500;
   @apply shadow-sm;
 
@@ -138,7 +138,6 @@ input[type=text] {
 
 label {
   @apply mt-4 mb-1 ml-1;
-
   @apply font-semibold;
   @apply text-sm text-primary-700;
 }
