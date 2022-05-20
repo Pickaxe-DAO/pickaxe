@@ -18,7 +18,7 @@ contract PickAXE is ERC721A, Ownable, ReentrancyGuard {
   string public uriSuffix = '.json';
   string public hiddenMetadataUri;
   
-  uint256 public cost;
+  uint256 public cost = 0.01 ether;
   uint256 public maxSupply;
   uint256 public maxMintAmountPerTx;
 
