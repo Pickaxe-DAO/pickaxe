@@ -304,12 +304,6 @@ export default class Dapp extends React.Component<Props, State> {
       networkConfig,
     });
 
-    if (await this.provider.getCode(CollectionConfig.contractAddress!) === '0x') {
-      this.setError('Please connect your wallet to Polygon Mainnet.');
-
-      return;
-    }
-
     this.contract = new ethers.Contract(
       CollectionConfig.contractAddress!,
       ContractAbi,
