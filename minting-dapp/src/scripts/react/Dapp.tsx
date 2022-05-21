@@ -95,7 +95,7 @@ export default class Dapp extends React.Component<Props, State> {
     } catch (e) {
       this.setError(
           <>
-              Maximum Whitelist Mint Allowance (10) Claimed!
+              Maximum Whitelist Mint Allowance (20) Claimed!
           </>,
       );
     }
