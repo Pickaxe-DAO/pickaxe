@@ -16,15 +16,15 @@ const CollectionConfig: CollectionConfigInterface = {
   maxSupply: 1000,
   whitelistSale: {
     price: 31,
-    maxMintAmountPerTx: 10,
+    maxMintAmountPerTx: 20,
   },
   preSale: {
-    price: 0.07,
-    maxMintAmountPerTx: 10,
+    price: 31,
+    maxMintAmountPerTx: 20,
   },
   publicSale: {
     price: 45,
-    maxMintAmountPerTx: 5,
+    maxMintAmountPerTx: 50,
   },
   contractAddress: "0x8674e38d25ebcfE51Bb696AD8B6cf7CA31a7B7a9",
   marketplaceIdentifier: 'PickAXE DAO Miners',
