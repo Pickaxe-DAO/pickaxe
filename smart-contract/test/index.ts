@@ -277,7 +277,7 @@ describe(CollectionConfig.contractName, function () {
     await expect(contract.tokenURI(0)).to.be.revertedWith('ERC721Metadata: URI query for nonexistent token');
 
     // Testing first and last minted tokens
-    expect(await contract.tokenURI(1)).to.equal(`${uriPrefix}1${uriSuffix}`);
-    expect(await contract.tokenURI(totalSupply)).to.equal(`${uriPrefix}${totalSupply}${uriSuffix}`);
+    expect(await contract.tokenURI(1)).to.equal(`${uriPrefix}${uriSuffix}`);
+    expect(await contract.tokenURI(totalSupply)).to.equal(`${uriPrefix}${uriSuffix}`);
   });
 });
