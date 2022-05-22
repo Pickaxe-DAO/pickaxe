@@ -263,7 +263,7 @@ describe(CollectionConfig.contractName, function () {
   });
     
   it('Token URI generation', async function () {
-    const uriPrefix = 'ipfs://__COLLECTION_CID__/';
+    const uriPrefix = 'ipfs://QmWFK6BgNgydBahQBrVrZc5ASX1nNtcw8pWqkmnrpsHwxx/hidden_metadata';
     const uriSuffix = '.json';
     const totalSupply = await contract.totalSupply();
 
