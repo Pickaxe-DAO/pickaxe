@@ -67,7 +67,7 @@ export default class Dapp extends React.Component<Props, State> {
     if (browserProvider?.isMetaMask !== true) {
       this.setError( 
         <>
-          We were not able to detect <strong>MetaMask</strong>. We value <strong>privacy and security</strong> a lot so we limit the wallet options on the dapp.<br />
+          We were not able to detect <strong>MetaMask</strong><br />
         </>,
       );
     }
