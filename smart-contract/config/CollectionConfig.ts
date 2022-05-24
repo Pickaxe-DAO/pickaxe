@@ -16,11 +16,11 @@ const CollectionConfig: CollectionConfigInterface = {
   maxSupply: 1000,
   whitelistSale: {
     price: 31,
-    maxMintAmountPerTx: 20,
+    maxMintAmountPerTx: 10,
   },
   preSale: {
     price: 31,
-    maxMintAmountPerTx: 20,
+    maxMintAmountPerTx: 10,
   },
   publicSale: {
     price: 45,
